@@ -28,11 +28,11 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+Button {
+  background-color: #1db954 !important;
+  transition: 0.1s !important;
+}
+
+Button:hover {
+  background-color: #1aa84c !important;
 }
