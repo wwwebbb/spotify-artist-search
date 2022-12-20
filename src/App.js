@@ -69,16 +69,14 @@ function App() {
         <img
           src={spotifyLogo}
           alt="Spotify Logo"
-          style={{ height: '10%', width: '10%' }}
+          style={{ height: '50px', width: '200px', objectFit: 'contain' }}
         />
         <InputGroup className="mb-3 mt-3" size="lg">
           <FormControl
             placeholder="Search for Artist"
             type="input"
             onKeyPress={(event) => {
-              if (event.key === 'Enter') {
-                search();
-              }
+              if (event.key === 'Enter') search();
             }}
             onChange={(event) => setSearchInput(event.target.value)}
           />
@@ -86,10 +84,10 @@ function App() {
         </InputGroup>
       </Container>
       <Container>
-        <Row className="mx-4 row row-cols-4">
+        <Row className="mx-4 row">
           {albums.map((album, i) => {
             return (
-              <Card className="mb-3">
+              <Card className="mb-3 col-sm-12 col-md-4 col-lg-3">
                 <a
                   href={album.external_urls.spotify}
                   target="_blank"
