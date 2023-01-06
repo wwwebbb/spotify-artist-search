@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/spotify-artist-search/static/css/main.be4fd37b.css",
-    "main.js": "/spotify-artist-search/static/js/main.b60afe83.js",
+    "main.js": "/spotify-artist-search/static/js/main.c61a6426.js",
     "static/media/Spotify_Logo_RGB_Green.png": "/spotify-artist-search/static/media/Spotify_Logo_RGB_Green.0c4ae91bae23217d39c9.png",
     "index.html": "/spotify-artist-search/index.html",
     "main.be4fd37b.css.map": "/spotify-artist-search/static/css/main.be4fd37b.css.map",
-    "main.b60afe83.js.map": "/spotify-artist-search/static/js/main.b60afe83.js.map"
+    "main.c61a6426.js.map": "/spotify-artist-search/static/js/main.c61a6426.js.map"
   },
   "entrypoints": [
     "static/css/main.be4fd37b.css",
-    "static/js/main.b60afe83.js"
+    "static/js/main.c61a6426.js"
   ]
 }
