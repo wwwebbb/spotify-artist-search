@@ -75,7 +75,7 @@ function App() {
           <FormControl
             placeholder="Search for Artist"
             type="input"
-            onKeyPress={(event) => {
+            onKeyDown={(event) => {
               if (event.key === 'Enter') search();
             }}
             onChange={(event) => setSearchInput(event.target.value)}
