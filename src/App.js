@@ -11,8 +11,6 @@ import {
 import spotifyLogo from './Spotify_Logo_RGB_Green.png';
 import { useState, useEffect } from 'react';
 
-console.log(process.env);
-
 const CLIENT_ID = 'c9953195c28346428f286190d79205bb';
 const CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 
