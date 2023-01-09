@@ -11,8 +11,10 @@ import {
 import spotifyLogo from './Spotify_Logo_RGB_Green.png';
 import { useState, useEffect } from 'react';
 
+console.log(process.env);
+
 const CLIENT_ID = 'c9953195c28346428f286190d79205bb';
-const CLIENT_SECRET = '4b0e4c07581d4d458a350297b1ae9f18';
+const CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 
 function App() {
   const [searchInput, setSearchInput] = useState('');
