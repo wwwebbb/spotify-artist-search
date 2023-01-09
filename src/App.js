@@ -103,6 +103,7 @@ function App() {
           })}
         </Row>
       </Container>
+      <div className="bg"></div>
     </div>
   );
 }
