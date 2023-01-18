@@ -10,9 +10,7 @@ import {
 } from 'react-bootstrap';
 import spotifyLogo from './Spotify_Logo_RGB_Green.png';
 import { useState, useEffect } from 'react';
-
-const CLIENT_ID = 'c9953195c28346428f286190d79205bb';
-const CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
+import axios from 'axios';
 
 function App() {
   const [searchInput, setSearchInput] = useState('');
@@ -21,14 +19,15 @@ function App() {
 
   //run API once so it doesn't refresh every time
   useEffect(() => {
-    var authParams = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `grant_type=client_credentials&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`,
+    const getAccessToken = async () => {
+      try {
+        const result = await axios.get('http://localhost:8000/token');
+        setAccessToken(result.data.access_token);
+      } catch (error) {
+        console.log(error);
+      }
     };
-    fetch('https://accounts.spotify.com/api/token', authParams)
-      .then((result) => result.json())
-      .then((data) => setAccessToken(data.access_token));
+    getAccessToken();
   }, []);
 
   //Search function
@@ -38,7 +37,7 @@ function App() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + accessToken,
+        Authorization: `Bearer  ${accessToken}`,
       },
     };
 
@@ -49,6 +48,9 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         return data.artists.items[0].id;
+      })
+      .catch((error) => {
+        console.log(error);
       });
 
     //Get request with artist ID to grab all the albums from that artist
@@ -87,7 +89,7 @@ function App() {
         <Row className="mx-4 row">
           {albums.map((album, i) => {
             return (
-              <Card className="mb-3 col-sm-12 col-md-4 col-lg-3">
+              <Card key={i} className="mb-3 col-sm-12 col-md-4 col-lg-3">
                 <a
                   href={album.external_urls.spotify}
                   target="_blank"
