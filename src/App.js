@@ -21,9 +21,7 @@ function App() {
   useEffect(() => {
     const getAccessToken = async () => {
       try {
-        const result = await axios.get(
-          'https://spot-artist-search.netlify.app/token'
-        );
+        const result = await axios.get('http://localhost:8000/token');
         setAccessToken(result.data.access_token);
       } catch (error) {
         console.log(error);
