@@ -25,7 +25,7 @@
     "deploy": "gh-pages -d build",
     "start:backend": "nodemon backend.js netlify-lambda serve lambda",
     "start:frontend": "react-scripts start",
-    "build": "react-scripts build && netlify-lambda build lambda",
+    "build": "react-scripts build && netlify-lambda build lambda --config netlify.toml --functions functions-build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
