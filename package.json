@@ -12,7 +12,6 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "netlify-lambda": "^2.0.15",
     "nodemon": "^2.0.20",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
@@ -23,9 +22,9 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start:backend": "nodemon backend.js netlify-lambda serve lambda",
+    "start:backend": "nodemon backend.js",
     "start:frontend": "react-scripts start",
-    "build": "react-scripts build && netlify-lambda build lambda --config netlify.toml --functions functions-build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

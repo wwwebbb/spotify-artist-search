@@ -1,8 +1,0 @@
-[build]
-  command = "npm run build"
-  functions-build = "lambda"
-
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/serverless"
-  status = 200
