@@ -5,7 +5,16 @@ const axios = require('axios');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+
+app.use(
+  cors({
+    origin: '*',
+  })
+);
+
+app.get('/', (req, res) => {
+  res.send('Server is running!');
+});
 
 const CLIENT_ID = 'c9953195c28346428f286190d79205bb';
 const CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
@@ -32,10 +41,6 @@ app.get('/token', async (req, res) => {
     console.log(error);
     res.send(error);
   }
-});
-
-app.get('/', (req, res) => {
-  res.send('Server is running!');
 });
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
