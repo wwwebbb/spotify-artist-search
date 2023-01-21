@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     const getAccessToken = async () => {
       try {
-        const result = await axios.get('http://localhost:8000/token');
+        const result = await axios.get(`${process.env.BACKEND_URL}/token`);
         setAccessToken(result.data.access_token);
       } catch (error) {
         console.log(error);
