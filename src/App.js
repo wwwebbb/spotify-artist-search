@@ -79,19 +79,28 @@ function App() {
           <FormControl
             placeholder="Search for Artist"
             type="input"
-            onKeyDown={(event) => {
-              if (event.key === 'Enter') search();
+            onChange={(e) => setSearchInput(e.target.value)}
+            onKeyDown={(e) => {
+              return e.key === 'Enter' && searchInput !== '' ? search : null;
             }}
-            onChange={(event) => setSearchInput(event.target.value)}
           />
-          <Button onClick={search}>Search</Button>
+          <Button
+            onClick={() => {
+              return searchInput !== '' ? search : null;
+            }}
+          >
+            Search
+          </Button>
         </InputGroup>
       </Container>
       <Container>
-        <Row className="mx-4 row">
+        <Row className="mx-4 gy-4">
           {albums.map((album, i) => {
             return (
-              <Card key={i} className="mb-3 col-sm-12 col-md-4 col-lg-3">
+              <Card
+                key={i}
+                className="card-hover p-0 col-sm-12 col-md-4 col-lg-3"
+              >
                 <a
                   href={album.external_urls.spotify}
                   target="_blank"

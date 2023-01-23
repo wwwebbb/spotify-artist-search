@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+.card-hover {
+  transition: 0.1s;
+}
+
+.card-hover:hover {
+  transform: scale(95%);
+}
+
 /* background by SVGBackgrounds.com */
 .bg {
   background-color: #ffffff;
