@@ -15,6 +15,7 @@ import axios from 'axios';
 function App() {
   const [searchInput, setSearchInput] = useState('');
   const [accessToken, setAccessToken] = useState('');
+  const [artistName, setArtistName] = useState('');
   const [albums, setAlbums] = useState([]);
 
   //run API once so it doesn't refresh every time
@@ -49,6 +50,7 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
+        setArtistName(data.artists.items[0].name);
         return data.artists.items[0].id;
       })
       .catch((error) => {
@@ -81,18 +83,23 @@ function App() {
             type="input"
             onChange={(e) => setSearchInput(e.target.value)}
             onKeyDown={(e) => {
-              return e.key === 'Enter' && searchInput !== '' ? search : null;
+              if (e.key === 'Enter' && searchInput !== '') search();
             }}
           />
           <Button
             onClick={() => {
-              return searchInput !== '' ? search : null;
+              if (searchInput !== '') search();
             }}
           >
             Search
           </Button>
         </InputGroup>
       </Container>
+      {artistName !== '' && (
+        <h2 style={{ margin: '2rem 0' }}>
+          Showing albums by <b>{artistName}</b>
+        </h2>
+      )}
       <Container>
         <Row className="mx-4 gy-4">
           {albums.map((album, i) => {
