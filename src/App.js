@@ -31,6 +31,9 @@ function App() {
       }
     };
     getAccessToken();
+    alert(
+      `If the page doesn't load, refresh to activate/awaken the Heroku Eco Dynos request`
+    );
   }, []);
 
   //Search function
