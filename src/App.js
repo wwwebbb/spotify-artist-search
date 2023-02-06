@@ -28,12 +28,12 @@ function App() {
         setAccessToken(result.data.access_token);
       } catch (error) {
         console.log(error);
+        alert(
+          `If the page doesn't load, refresh to activate the Heroku Eco Dynos request`
+        );
       }
     };
     getAccessToken();
-    alert(
-      `If the page doesn't load, refresh to activate/awaken the Heroku Eco Dynos request`
-    );
   }, []);
 
   //Search function
